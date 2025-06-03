@@ -3,21 +3,18 @@
 ## Result
 
 ```
-
 BenchmarkDotNet v0.15.0, Windows 11 (10.0.26100.4061/24H2/2024Update/HudsonValley)
 AMD Ryzen 9 7950X 4.50GHz, 1 CPU, 32 logical and 16 physical cores
 .NET SDK 9.0.102
   [Host]     : .NET 9.0.1 (9.0.124.61010), X64 AOT AVX-512F+CD+BW+DQ+VL+VBMI
   DefaultJob : .NET 9.0.1 (9.0.124.61010), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
-
-
 ```
+
 | Method    | A   | B   | Mean      | Error     | StdDev    | Ratio | RatioSD | Code Size | Allocated | Alloc Ratio |
 |---------- |---- |---- |----------:|----------:|----------:|------:|--------:|----------:|----------:|------------:|
-| Delegate  | 123 | 456 | 0.0297 ns | 0.0074 ns | 0.0069 ns |  1.04 |    0.31 |      47 B |         - |          NA |
-| Value     | 123 | 456 | 0.4436 ns | 0.0058 ns | 0.0054 ns | 15.59 |    2.97 |      27 B |         - |          NA |
-| Interface | 123 | 456 | 0.0324 ns | 0.0056 ns | 0.0050 ns |  1.14 |    0.28 |      51 B |         - |          NA |
-
+| Delegate  | 123 | 456 | 0.2237 ns | 0.0057 ns | 0.0053 ns |  1.00 |    0.03 |      47 B |         - |          NA |
+| Value     | 123 | 456 | 0.4633 ns | 0.0158 ns | 0.0148 ns |  2.07 |    0.08 |      27 B |         - |          NA |
+| Interface | 123 | 456 | 0.4524 ns | 0.0479 ns | 0.1411 ns |  2.02 |    0.63 |      51 B |         - |          NA |
 
 ## Asm
 
@@ -75,8 +72,7 @@ M00_L00:
 M00_L00:
        mov       rcx,r8
        mov       r8d,r11d
-       mov       r11,7FF997B20478
+       mov       r11,7FF997B40478
        jmp       qword ptr [r11]
 ; Total bytes of code 51
 ```
-

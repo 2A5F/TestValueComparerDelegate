@@ -24,7 +24,7 @@ public readonly unsafe struct ValueComparison<T>(object obj, void* ptr) : ICompa
     }
 
     [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
-    public static ValueComparison<T> Create(IComparer<T> obj)
+    public static ValueComparison<T> Create<TComparer>(TComparer obj) where TComparer : IComparer<T>
     {
         Ldarg(nameof(obj));
         Dup();
